@@ -1,5 +1,5 @@
 ### S0 : setting working directory
-#setwd("E:/大学/2025-2026 大四/coursera/R/COURSE 3/Coursera 3 peer-graded assignment")
+setwd("E:/大学/2025-2026 大四/coursera/R/COURSE 3/Coursera 3 peer-graded assignment")
 
 ### S1 : read the txt tables 
 X_test <- read.table("UCI HAR Dataset/test/X_test.txt")
@@ -50,3 +50,4 @@ DS2 <- DS1 %>%
     summarize(across(everything(), mean, na.rm = TRUE), .groups = "drop")
     # Q5 : create a new dataset with the average of each variable
     #      for each activity and subject
+write.table(DS2, "tidydata.txt", row.names = FALSE)
