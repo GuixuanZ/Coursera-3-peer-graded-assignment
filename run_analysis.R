@@ -14,14 +14,12 @@ actLabs <- read.table("UCI HAR Dataset/activity_labels.txt")
 features <- read.table("UCI HAR Dataset/features.txt")
 
 
-
 ### S2 : label the variable names and build the test and train datasets
 colnames(X_test) <- features$V2
 colnames(X_train) <- features$V2
 
 test <- cbind(y_test, sub_test, X_test)
 train <- cbind(y_train,sub_train, X_train)
-
 
 
 ### S3 : change the activity names
@@ -38,13 +36,11 @@ dataset$activities <- actLabs$names[match(dataset$activities, actLabs$code)]
 dataset <- dataset[order(dataset$subjects), ]
 
 
-
 ### S4 : extract the means and stds 
 m_std_col <- grepl("activities|subjects|mean\\(\\)|std\\(\\)", names(dataset))
 DS1 <- dataset[, m_std_col]
     # Q2: Extracts only the measurements on the mean and standard deviation
     #     for each measurement. 
-
 
 
 ### S5 :grouping data and calculate the average
